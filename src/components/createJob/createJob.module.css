@@ -1,9 +1,0 @@
-.mainContainer {
-  width: 30rem;
-  height: 80vh;
-  position: fixed;
-  top: 10vh;
-  left: calc(50vw - 15rem);
-  z-index: 5;
-  background-color: #fff;
-}

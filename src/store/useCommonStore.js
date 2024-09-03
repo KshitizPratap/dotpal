@@ -1,12 +1,17 @@
 import { create } from "zustand";
 import { devtools } from "zustand/middleware";
+import { dummyUserData } from "../config/Config";
 
 const useCommonStore = create(
   devtools((set) => ({
     showCreateJob: false,
     showBackdrop: false,
-    setShowBackdrop: (value) => set({ showBackdrop: value }),
-    setShowCreateJob: (value) => set({ showCreateJob: value }),
+    selectedJobsIndex: undefined,
+    jobs: dummyUserData,
+    setJobs: (jobs) => set({ jobs }),
+    setSelectedJobsIndex: (selectedJobsIndex) => set({ selectedJobsIndex }),
+    setShowBackdrop: (showBackdrop) => set({ showBackdrop }),
+    setShowCreateJob: (showCreateJob) => set({ showCreateJob }),
   }))
 );
 

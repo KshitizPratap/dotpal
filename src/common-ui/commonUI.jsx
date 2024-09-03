@@ -5,13 +5,16 @@ export const Conditional = ({ show, children }) => {
   return show ? children : "";
 };
 
-export const Backdrop = () => {
+export const Backdrop = ({ onBackdropClick }) => {
   const { showBackdrop, setShowBackdrop } = useCommonStore();
   return (
     showBackdrop && (
       <div
         className={classes.backdrop}
-        onClick={() => setShowBackdrop(false)}
+        onClick={() => {
+          setShowBackdrop(false);
+          onBackdropClick();
+        }}
       />
     )
   );

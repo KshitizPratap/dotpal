@@ -1,33 +1,7 @@
 .mainContainer {
   width: 100vw;
-  min-height: 60px;
-  height: 20vh;
   padding: 0 1rem;
-}
-
-.button {
-  animation: fun 0.15s;
-  padding: 0.75rem 1.5rem;
-  background-color: #e65a99;
-  color: white;
-  border-radius: 8px;
-  font-size: 14px;
-  border: none;
-  margin: 0.5rem;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #ff63a9; /* 100% */
-  box-shadow: 0vh 0.5vh #e65a99; /* 90% */
-  transform: translateY(-0.5vh);
-}
-
-@keyframes fun {
-  from {
-    transform: scale(0);
-  }
-  to {
-    transform: scale(1);
-  }
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
 }

@@ -6,23 +6,19 @@ import Bubble from "../bubble/Bubble";
 const JobListing = () => {
   const { jobs } = useCommonStore();
 
-  const randomBubbleGenerator = () => {
-    const size = Math.random() * 100 + 100;
-    const x = Math.random() * 70 + 10;
-    const y = Math.random() * 70 + 10;
-
-    return {
-      coordinates: { x, y },
-      size,
-    };
-  };
-
+  console.log("[]", jobs);
   return (
     <div className={classes.mainContainer}>
-      {jobs.map((job, index) => {
-        const { coordinates, size } = randomBubbleGenerator();
+      {Object.keys(jobs).map((id) => {
+        const { coordinates, size } = jobs[id];
+
         return (
-          <Bubble coordinates={coordinates} size={size} key={index} job={job} />
+          <Bubble
+            coordinates={coordinates}
+            size={size}
+            key={id}
+            job={jobs[id]}
+          />
         );
       })}
     </div>

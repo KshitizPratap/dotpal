@@ -3,11 +3,11 @@ import classes from "./login.module.css";
 import useCommonStore from "../../store/useCommonStore";
 
 const Login = () => {
-  const { userCred, setUserCred } = useCommonStore();
-  const [tempCred, steTempCred] = useState({ username: "", password: "" });
+  const { setUserCred } = useCommonStore();
+  const [tempCred, setTempCred] = useState({ username: "", password: "" });
 
   const handleUserCredential = (e) => {
-    steTempCred((prev) => {
+    setTempCred((prev) => {
       return {
         ...prev,
         [e.target.name]: e.target.value,

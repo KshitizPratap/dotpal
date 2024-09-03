@@ -1,13 +1,13 @@
 import { create } from "zustand";
 import { devtools } from "zustand/middleware";
-import { dummyUserData } from "../config/Config";
+import { dummyJobData } from "../config/Config";
 
 const useCommonStore = create(
   devtools((set) => ({
     showCreateJob: false,
     showBackdrop: false,
     selectedJobsIndex: undefined,
-    jobs: dummyUserData,
+    jobs: dummyJobData,
     userCred: { username: "", password: "" },
     setUserCred: (userCred) => set({ userCred }),
     setJobs: (jobs) => set({ jobs }),

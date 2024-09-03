@@ -6,11 +6,29 @@ import { Backdrop, Conditional } from "../common-ui/commonUI";
 import useCommonStore from "../store/useCommonStore";
 import JobListing from "../components/Job/jobListing/JobListing";
 import Login from "../components/login/Login";
+import { randomBubbleGenerator } from "../utils/utils";
 
 const Layout = () => {
-  const { showCreateJob, setShowCreateJob, userCred } = useCommonStore();
+  const { showCreateJob, setShowCreateJob, userCred, jobs, setJobs } =
+    useCommonStore();
 
-  console.log("[userCred]", userCred);
+  useEffect(() => {
+    const tempjobs = { ...jobs };
+    Object.keys(tempjobs).map((id) => {
+      const { name, profileImg } = tempjobs[id];
+      const { coordinates, size } = randomBubbleGenerator();
+
+      tempjobs[id] = {
+        name,
+        profileImg,
+        coordinates,
+        size,
+        id,
+      };
+    });
+
+    setJobs(tempjobs);
+  }, []);
 
   return (
     <>

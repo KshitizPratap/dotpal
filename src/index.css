@@ -15,10 +15,19 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+button:hover:not(:disabled) {
   background-color: #ff63a9; /* 100% */
   box-shadow: 0vh 0.5vh #e65a99; /* 90% */
   transform: translateY(-0.5vh);
+}
+
+button:disabled {
+  background-color: #cccccc;
+  color: #666666;
+  cursor: default;
+  box-shadow: none;
+  transform: none;
+  animation: none;
 }
 
 @keyframes fun {

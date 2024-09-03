@@ -8,6 +8,8 @@ const useCommonStore = create(
     showBackdrop: false,
     selectedJobsIndex: undefined,
     jobs: dummyUserData,
+    userCred: { username: "", password: "" },
+    setUserCred: (userCred) => set({ userCred }),
     setJobs: (jobs) => set({ jobs }),
     setSelectedJobsIndex: (selectedJobsIndex) => set({ selectedJobsIndex }),
     setShowBackdrop: (showBackdrop) => set({ showBackdrop }),

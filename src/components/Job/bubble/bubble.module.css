@@ -1,0 +1,8 @@
+.mainContainer {
+  position: absolute;
+}
+
+.mainContainer img {
+  height: var(--size);
+  width: var(--size);
+}

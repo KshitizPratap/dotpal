@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import classes from "./jobInteraction.module.css";
-import useCommonStore from "../../store/useCommonStore";
-import DefaultUserProfile from "../../asset/userProfile.png";
+import useCommonStore from "../../../store/useCommonStore";
+import DefaultUserProfile from "../../../asset/userProfile.png";
 
 const JobInteraction = () => {
   const { jobs, selectedJobsIndex, setShowCreateJob, setShowBackdrop } =

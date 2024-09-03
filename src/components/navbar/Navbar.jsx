@@ -3,7 +3,8 @@ import classes from "./Navbar.module.css";
 import useCommonStore from "../../store/useCommonStore";
 
 const Navbar = () => {
-  const { setShowCreateJob, setShowBackdrop, userCred } = useCommonStore();
+  const { setShowCreateJob, setShowBackdrop, userCred, setSelectedJobsIndex } =
+    useCommonStore();
   return (
     <div className={classes.mainContainer}>
       <button disabled={!userCred.username.length}>Setting</button>
@@ -12,6 +13,7 @@ const Navbar = () => {
         onClick={() => {
           setShowCreateJob(true);
           setShowBackdrop(true);
+          setSelectedJobsIndex(undefined);
         }}
       >
         Create

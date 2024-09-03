@@ -6,7 +6,6 @@ import Bubble from "../bubble/Bubble";
 const JobListing = () => {
   const { jobs } = useCommonStore();
 
-  console.log("[]", jobs);
   return (
     <div className={classes.mainContainer}>
       {Object.keys(jobs).map((id) => {

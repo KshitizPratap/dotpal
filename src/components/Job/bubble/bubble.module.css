@@ -1,8 +1,16 @@
 .mainContainer {
   position: absolute;
-}
-
-.mainContainer img {
   height: var(--size);
   width: var(--size);
+  background-image: url("../../../asset/bubble.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  background-color: #ffffff78;
+  border-radius: 100%;
 }

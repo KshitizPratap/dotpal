@@ -2,14 +2,19 @@ import React, { useEffect, useState } from "react";
 import classes from "./jobInteraction.module.css";
 import useCommonStore from "../../../store/useCommonStore";
 import DefaultUserProfile from "../../../asset/userProfile.png";
+import { Conditional } from "../../../common-ui/commonUI";
+import { randomBubbleGenerator } from "../../../utils/utils";
 
 const JobInteraction = () => {
-  const { jobs, selectedJobsIndex, setShowCreateJob, setShowBackdrop } =
-    useCommonStore();
-  const [jobDetails, setJobDetails] = useState({
-    title: "",
-    description: "",
-  });
+  const {
+    jobs,
+    selectedJobsIndex,
+    setShowCreateJob,
+    setShowBackdrop,
+    setJobs,
+    userCred,
+  } = useCommonStore();
+  const [jobDetails, setJobDetails] = useState({});
 
   useEffect(() => {
     if (selectedJobsIndex) {
@@ -26,6 +31,27 @@ const JobInteraction = () => {
     });
   };
 
+  const handlePublish = () => {
+    const { coordinates, size } = randomBubbleGenerator();
+    const { title, description } = jobDetails;
+    const newJobs = {
+      ...jobs,
+      [userCred.username]: {
+        name: userCred.username,
+        id: userCred.username,
+        profileImg: "",
+        coordinates,
+        size,
+        title,
+        description,
+      },
+    };
+
+    setJobs(newJobs);
+    setShowBackdrop(false);
+    setShowCreateJob(false);
+  };
+
   return (
     <div className={classes.mainContainer}>
       <div className={classes.header}>
@@ -35,7 +61,7 @@ const JobInteraction = () => {
           type="text"
           placeholder="Title"
           name="title"
-          value={jobDetails.title}
+          value={jobDetails?.title}
           onChange={handleJobDetails}
         />
       </div>
@@ -43,7 +69,7 @@ const JobInteraction = () => {
         className={classes.jobDescription}
         placeholder="Description"
         name="description"
-        value={jobDetails.description}
+        value={jobDetails?.description}
         onChange={handleJobDetails}
       />
 
@@ -55,9 +81,13 @@ const JobInteraction = () => {
             setShowBackdrop(false);
           }}
         >
-          Cancel
+          Close
         </button>
-        <button className={classes.button}>Publish</button>
+        <Conditional show={!selectedJobsIndex}>
+          <button className={classes.button} onClick={handlePublish}>
+            Publish
+          </button>
+        </Conditional>
       </div>
     </div>
   );

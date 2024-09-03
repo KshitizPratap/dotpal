@@ -15,15 +15,12 @@ const Layout = () => {
   useEffect(() => {
     const tempjobs = { ...jobs };
     Object.keys(tempjobs).map((id) => {
-      const { name, profileImg } = tempjobs[id];
       const { coordinates, size } = randomBubbleGenerator();
 
       tempjobs[id] = {
-        name,
-        profileImg,
+        ...tempjobs[id],
         coordinates,
         size,
-        id,
       };
     });
 
